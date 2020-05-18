@@ -27,7 +27,7 @@
 ?>
 	<div class="login-box">
 		<h2>Cadastrar</h2>
-		<form action="procedimentos/addUsuario.php" method="post" >
+		<form action="services/addUsuario.php" method="post" >
 
 
 		<div class="textbox">
