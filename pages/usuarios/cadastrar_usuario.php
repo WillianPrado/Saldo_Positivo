@@ -1,6 +1,7 @@
 
 <?php
     /**
+     * Esta página realiza o Cadastro do usário para acesso a aplicação
      * Validação de cadastro de usuário
      */
     include("assets/validations/validate_cadastra_usuario.php");
