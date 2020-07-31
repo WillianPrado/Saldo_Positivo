@@ -20,7 +20,7 @@
 
     include("bd/conecta_bd.php"); // Importando Conecção com o BD
     include("routes/links.php"); // Importando Links
-    include("assets/validations/validate_cartoes.php");
+    include("assets/validations/validate_cartoes.php"); //Validação de Erros
 
     // Pega o nome do usuário
     $id_usuario = $_SESSION['user']['id'];
