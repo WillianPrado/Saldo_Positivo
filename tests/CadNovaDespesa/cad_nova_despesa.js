@@ -2,25 +2,29 @@
 const { Builder, By, Key, until } = require('selenium-webdriver'); // Importando dependencias do Selenium
 
 describe('index', function() {
-  this.timeout(30000)
+    this.timeout(30000)
   
-  let driver
+    let driver
   
-  beforeEach(async function() {
-    driver = await new Builder().forBrowser('chrome').build();
-  });
+    beforeEach(async function() {
+        driver = await new Builder().forBrowser('chrome').build();
+    });
 
-  async function cadastrar_nova_despesa(){
-    await driver.get("http://localhost/SaldoPositivo");
-    await driver.findElement(By.id("email_logar")).click();
-    await driver.findElement(By.id("email_logar")).sendKeys("jheymisonbao@live.com");
-    await driver.findElement(By.id("senha_logar")).click();
-    await driver.findElement(By.id("senha_logar")).sendKeys("Misson201369");
-    await driver.findElement(By.css(".btn:nth-child(3)")).click();
-  }
+    async function cadastrar_nova_despesa(){
+        await driver.get("http://localhost/SaldoPositivo");
+        await driver.findElement(By.id("email_logar")).click();
+        await driver.findElement(By.id("email_logar")).sendKeys("jheymisonbao@live.com");
+        await driver.findElement(By.id("senha_logar")).click();
+        await driver.findElement(By.id("senha_logar")).sendKeys("Misson201369");
+        await driver.findElement(By.css(".btn:nth-child(3)")).click();
+        await driver.get("http://localhost/SaldoPositivo/main.php?page=despesas&sec=cadastrar_despesa")
+        await driver.findElement(By.id("descricao_despesa")).sendKeys("Comprei uma bicileta")
+        await driver.findElement(By.xpath("//button/div/div/div")).click()
+        await driver.findElement(By.xpath("//div/div/div/div/ul/li[3]/a")).click()
+    }
 
-  it('index', async function() {
-    cadastrar_nova_despesa(); //Aplicando a função
-  });
+    it('index', async function() {
+        cadastrar_nova_despesa(); //Aplicando a função
+    });
  
 })

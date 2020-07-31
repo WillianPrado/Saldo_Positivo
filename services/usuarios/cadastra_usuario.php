@@ -55,7 +55,7 @@
             // Faz a inserção no banco de dados
             $sql = "INSERT INTO cadastrar_usuarios (nome, email, senha) VALUES ('$nome', '$email', '$encript_senha')";
             
-            // Caso não der erro faz a inserção no banco de dados
+            // Caso não der erro faz a inserção no banco de dados teste
             if ( mysqli_query($conecta_bd, $sql) ) {
 
                 $sql_ultimo = "SELECT id FROM cadastrar_usuarios ORDER BY id DESC LIMIT 1";

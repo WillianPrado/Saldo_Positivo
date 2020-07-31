@@ -1,17 +1,22 @@
-
-<?php
+<?php 
     /**
-     * Esta página é onde o usuário fara seu login
+     * Pagina Front end Login
+     * @author Nayara <naiara.santos@live.com>
+     * @package pages/usuarios
      */
 
+     /**
+      * Esta função realiza o login do usuário ela é a pagina que vai aparecer primeiro
+      *
+      * @return void
+      */
+function login() { 
     //  Validação de Erros
     include("assets/validations/validate_login.php");
 
     // Importando Links
     include_once("routes/links.php");
-    
 ?>
-
 <form method="post" action="<?php echo $realiza_login ?>">
     <div class="row">
         <div id="img_back_login" class="col-lg-7" style="background-image: url('assets/img/background_login.png'); background-repeat: no-repeat; background-size: 100%; background-position: center;">
@@ -81,3 +86,7 @@
         </div>
     </div>
 </form>
+
+<?php } // fim da função ?>
+
+<?php login(); ?>
