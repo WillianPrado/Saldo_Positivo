@@ -6,29 +6,20 @@
      * @package Saldo Positivo
      * 
      */
-    
+
     // Iniciando Session
     session_start();
 
     // Verificando se está logado
     if ( $_SESSION['logado'] == true ) : 
-    $id_usuario = $_SESSION['user']['id'];
+    
     // Pega o nome do usuário
     $usuario = $_SESSION['user']['nome'];
     // Pega apenas o primeiro nome do usuario
     $nome = explode(" ", $usuario);
-    
-    include("bd/conecta_bd.php"); // Importando Banco de Dados
+
     // Titulos das Páginas
     include("inserts/title_pages.php");
-
-    // Pegar dados do perfil
-    $sql_perfil = "SELECT * FROM perfil_usuarios WHERE id_cadastrar_usuarios = '$id_usuario'";
-    $sel_perfil = $conecta_bd->query($sql_perfil);
-    $perfil = $sel_perfil -> fetch_assoc();
-
-    // Imagem Perfil
-    $imagem = $perfil['imagem'];
 ?>    
 
 <!doctype html>
@@ -123,21 +114,21 @@
                         </a>
                     </li>
 
-                    <li class="nav-item dropdown <?=($pageInfo == 'relatorio_ganhos' || $pageInfo == 'relatorio_despesas' || $pageInfo == 'relatorio_tipo_pagamento' )?'active':''?>" >
+                    <li class="nav-item dropdown">
                         <a class="nav-link" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <i class="material-icons">assignment</i>
                             <p>Relatórios</p>
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <a class="dropdown-item nav-link" href="main.php?page=relatorios&sec=relatorio_ganhos">
+                            <a class="dropdown-item nav-link" href="#">
                                 <i class="material-icons">attach_money</i>
                                 Ganhos
                             </a>
-                            <a class="dropdown-item nav-link" href="main.php?page=relatorios&sec=relatorio_despesas">
+                            <a class="dropdown-item nav-link" href="#">
                                 <i class="material-icons">account_balance_wallet</i>
                                 Despesas
                             </a>
-                            <a class="dropdown-item nav-link" href="main.php?page=relatorios&sec=relatorio_tipo_pagamento">
+                            <a class="dropdown-item nav-link" href="#">
                                 <i class="material-icons">credit_card</i>
                                 Tipo de Pagamento
                             </a>
@@ -161,8 +152,8 @@
                         </div>
                     </li>
 
-                    <li class="nav-item <?=($pageInfo == 'vizualizar_perfil')?'active':''?>" >
-                        <a class="nav-link" href="main.php?page=perfil&sec=vizualizar_perfil" name="vizualizar_perfil">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#0">
                             <i class="material-icons">perm_identity</i>
                             <p>Visualizar Perfil</p>
                         </a>
@@ -202,11 +193,11 @@
                                                         <?php echo $nome[0]; ?>
                                                     </a>
                                                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                                        <a class="dropdown-item " href="main.php?page=perfil&sec=vizualizar_perfil">
+                                                        <a class="dropdown-item " href="#">
                                                             <i class="material-icons">perm_identity</i>
                                                             Perfil
                                                         </a>
-                                                        <a class="dropdown-item" href="index.php">
+                                                        <a class="dropdown-item " href="index.php">
                                                             <i class="material-icons">clear</i>
                                                             Logout
                                                         </a>
@@ -214,7 +205,7 @@
                                                 </div>   
                                             </div>
                                             <div class="col">
-                                                <img class="card imgPerfil" src="<?php echo $imagem ?>" rel="nofollow" alt="Card image cap">
+                                                <img class="card imgPerfil" src="assets/img/img-perfil.png" rel="nofollow" alt="Card image cap">
                                             </div>
                                         </div>
                                                 
